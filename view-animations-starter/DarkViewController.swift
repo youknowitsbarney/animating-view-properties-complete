@@ -14,15 +14,43 @@ class DarkViewController: UIViewController {
         
         UIView.animate(withDuration: 1.0,
                        delay: 0.0,
-                       options: [.autoreverse, .repeat],
+                       options: [],
                        animations: {
                         
                         self.blueView.backgroundColor = .yellow
                         //self.blueView.alpha = 0.0
-                        self.blueView.frame.size.width -= 15
-                        self.blueView.frame.size.height -= 15
-                        self.blueView.frame.origin.x += 50
+                        self.blueView.frame.size.width -= 80
+                        self.blueView.frame.size.height -= 169
+                        
+                        //self.blueView.frame.origin.x += 120
+                        self.blueView.frame.origin.x -= 50
+                        self.blueView.frame.origin.y -= 150
         },
-                       completion: nil)
+                       completion: { _ in
+                        
+                        UIView.animate(withDuration: 1.0,
+                                       delay: 0.0,
+                                       options: [],
+                            animations: {
+                                
+                                self.blueView.frame.origin.x += 170
+                        },
+                            completion: { _ in
+                        
+                                UIView.animate(withDuration: 1.0,
+                                               delay: 0.0,
+                                               options: [],
+                                               animations: {
+                                                
+                                                self.blueView.frame.origin.x -= 120
+                                                self.blueView.frame.origin.y += 150
+                                                
+                                                self.blueView.frame.size.width += 80
+                                                self.blueView.frame.size.height += 169
+                                },
+                                               completion: nil)
+                        })
+                        
+        })
     }
 }
